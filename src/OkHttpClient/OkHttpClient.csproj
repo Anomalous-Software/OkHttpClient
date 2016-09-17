@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -42,12 +42,6 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="Square.OkIO">
-      <HintPath>..\..\packages\Square.OkIO.1.6.0.0\lib\MonoAndroid\Square.OkIO.dll</HintPath>
-    </Reference>
-    <Reference Include="Square.OkHttp3">
-      <HintPath>..\..\packages\Square.OkHttp3.3.2.0.0\lib\MonoAndroid\Square.OkHttp3.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -59,10 +53,17 @@
     <Compile Include="AwaitableOkHttp.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\Strings.xml" />
+    <ProjectReference Include="..\..\..\square-bindings\binding\Square.OkHttp3\Square.OkHttp3.csproj">
+      <Project>{2da76115-a022-4275-8119-fb9847254998}</Project>
+      <Name>Square.OkHttp3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\square-bindings\binding\Square.OkIO\Square.OkIO.csproj">
+      <Project>{0adbd990-1a61-4d2a-b1cd-e46ac63348be}</Project>
+      <Name>Square.OkIO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
